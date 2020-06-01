@@ -1,18 +1,21 @@
 // Write your Character component here
 import React, { useEffect, useState } from 'react';
+import Card from './Card';
 
 
 function Character({props, people, nextPage}){
-    const [character, setCharacter] = useState(props);
+    const [characters, setCharacters] = useState(people);
 
     useEffect(() => {
-        setCharacter(props.results)
-    }, [props.results])
-
-    console.log(character);
+        setCharacters(people)
+    }, [people, characters])
 
     return (
-        <h2>Person Name: {people.name}</h2>
+        <div className='cardContainer'>
+            {people.map((character, index) => {
+                return <Card character={character} key={index} />
+            })}
+        </div>
     )
 }
 

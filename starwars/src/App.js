@@ -5,15 +5,19 @@ import Header from './components/Header';
 import Character from './components/Character';
 
 
+
 const App = () => {
   const [data, setData] = useState({hey: "hey"});
   const [people, setPeople] = useState([]);
-  const [nextPage, setNextPage] = useState('https://swapi.py4e.com/api/people/?page=2')
+  const [page, setPage] = useState(1);
 
+  function paginate(pageNumber){
+    setPage(pageNumber);
+  }
 
 useEffect(() => {
   const fetchData = () => {
-    axios.get('https://swapi.py4e.com/api/')
+    axios.get(`https://swapi.py4e.com/api/people/?page=${page}`)
       .then((response) => {
         console.log(response);
         return response.data;
@@ -24,7 +28,7 @@ useEffect(() => {
   }
 
   fetchData();
-}, [])
+}, [page])
 
 useEffect(() => {
   const fetchData = () => {
@@ -36,7 +40,6 @@ useEffect(() => {
       })
       .then((data) => {
         setPeople(data.results);
-        setNextPage(data.next);
       })
       .catch((error) => {
         console.log(error);
@@ -48,8 +51,8 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <Header />
-      <Character props={data} people={people} nextPage={nextPage} />
+      <Header add1ToPage={paginate} />
+      <Character props={data} people={people} />
     </div>
   );
 }
