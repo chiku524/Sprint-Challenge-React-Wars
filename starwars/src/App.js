@@ -9,10 +9,10 @@ import Character from './components/Character';
 const App = () => {
   const [data, setData] = useState({hey: "hey"});
   const [people, setPeople] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1)
 
-  function paginate(pageNumber){
-    setPage(pageNumber);
+  function add1ToPage(){
+    setPage(page + 1);
   }
 
 useEffect(() => {
@@ -51,7 +51,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <Header add1ToPage={paginate} />
+      <Header add1ToPage={add1ToPage} />
       <Character props={data} people={people} />
     </div>
   );

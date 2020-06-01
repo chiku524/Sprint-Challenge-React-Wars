@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pagination} from 'reactstrap';
+import {Pagination, PaginationItem, PaginationLink} from 'reactstrap';
 import styled from 'styled-components';
 
 const PaginationContainer = styled.div`
@@ -7,17 +7,31 @@ const PaginationContainer = styled.div`
     flex-direction: column;
 `;
 
-function Header({paginate}){
-    // const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+function Header({add1ToPage}){
     return(
         <PaginationContainer>
             <h1 className='Header'>Characters</h1>
-            {/* <Pagination className = "cont">
-                {pageNumbers.map(number => {
-                    return <Pagination.Item className="clicker" onClick={() => paginate(number)} key={number}>{number}</Pagination.Item>
-                })}
-            </Pagination> */}
+            <Pagination aria-label='PageNavigation' style={{display: 'flex', listStyle: 'none', justifyContent: 'center'}}>
+                <PaginationItem>
+                    <PaginationLink first href='' />
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink previous href='' />
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink href='#' >1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink href='#' onClick={add1ToPage}>2</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink next href='#' />
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink last href='#' />
+                </PaginationItem>
+            </Pagination>
         </PaginationContainer>
         
     )
