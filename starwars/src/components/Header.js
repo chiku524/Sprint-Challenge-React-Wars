@@ -8,7 +8,7 @@ const PaginationContainer = styled.div`
 `;
 
 
-function Header({add1ToPage}){
+function Header({add1ToPage, skipToLast, subtract1ToPage}){
     return(
         <PaginationContainer>
             <h1 className='Header'>Characters</h1>
@@ -17,19 +17,19 @@ function Header({add1ToPage}){
                     <PaginationLink first href='' />
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink previous href='' />
+                    <PaginationLink previous href='' onClick={subtract1ToPage} />
                 </PaginationItem>
                 <PaginationItem>
                     <PaginationLink href='#' >1</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink href='#' onClick={add1ToPage}>2</PaginationLink>
+                    <PaginationLink href='#' >2</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink next href='#' />
+                    <PaginationLink next href='#' onClick={add1ToPage} />
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink last href='#' />
+                    <PaginationLink last href='#' onClick={skipToLast} />
                 </PaginationItem>
             </Pagination>
         </PaginationContainer>

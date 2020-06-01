@@ -12,7 +12,23 @@ const App = () => {
   const [page, setPage] = useState(1)
 
   function add1ToPage(){
-    setPage(page + 1);
+    if(page === 9) {
+      return ;
+    } else {
+        setPage(page + 1);
+    }
+  }
+
+  function skipToLast(){
+    setPage(9);
+  }
+
+  function subtract1ToPage(){
+    if(page === 1){
+      return ;
+    } else {
+      setPage(page - 1);
+    }
   }
 
 useEffect(() => {
@@ -51,7 +67,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <Header add1ToPage={add1ToPage} />
+      <Header add1ToPage={add1ToPage} skipToLast={skipToLast} subtract1ToPage={subtract1ToPage} />
       <Character props={data} people={people} />
     </div>
   );
