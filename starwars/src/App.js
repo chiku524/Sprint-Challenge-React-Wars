@@ -36,21 +36,6 @@ useEffect(() => {
     axios.get(`https://swapi.py4e.com/api/people/?page=${page}`)
       .then((response) => {
         console.log(response);
-        return response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-  }
-
-  fetchData();
-}, [page])
-
-useEffect(() => {
-  const fetchData = () => {
-    axios.get('https://swapi.py4e.com/api/people/')
-      .then((response) => {
-        console.log(response);
         setData(response.data);
         return response.data;
       })
@@ -63,7 +48,26 @@ useEffect(() => {
   }
 
   fetchData();
-}, [])
+}, [page])
+
+// useEffect(() => {
+//   const fetchData = () => {
+//     axios.get('https://swapi.py4e.com/api/people/')
+//       .then((response) => {
+//         console.log(response);
+//         setData(response.data);
+//         return response.data;
+//       })
+//       .then((data) => {
+//         setPeople(data.results);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       })
+//   }
+
+//   fetchData();
+// }, [])
 
   return (
     <div className="App">

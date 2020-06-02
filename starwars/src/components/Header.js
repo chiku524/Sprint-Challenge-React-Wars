@@ -20,16 +20,16 @@ function Header({add1ToPage, skipToLast, subtract1ToPage}){
                     <PaginationLink previous href='' onClick={subtract1ToPage} />
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink href='#' >1</PaginationLink>
+                    <PaginationLink >1</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink href='#' >2</PaginationLink>
+                    <PaginationLink >2</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink next href='#' onClick={add1ToPage} />
+                    <PaginationLink next onClick={add1ToPage} />
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLink last href='#' onClick={skipToLast} />
+                    <PaginationLink last onClick={skipToLast} />
                 </PaginationItem>
             </Pagination>
         </PaginationContainer>

@@ -2,7 +2,7 @@
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
     "React is a declarative, efficient, and flexible JavaScript library for building user interfaces."
-    It is declarative and component based, which means that it is made up of small and isolated pieces of code. These componenets make it easy to create complex UIs in a simple manner.
+    It is declarative and component based, which means that it is made up of small and isolated pieces of code. These components make it easy to create complex UIs in a simple manner.
 
 1. Describe component state.
     There is a function called setState() that updates a component's state object. When the state changes, the component re-renders. This is component state. 
